@@ -32,7 +32,7 @@ local -a farray
 for zman_dep in hpricot rdiscount mustache asciidoctor; do
     farray=( $ZMAN_REPO_DIR/gems/$zman_dep-*(N[1]) )
     [[ ! -d ${farray[1]} ]] && \
-        { zman-inst g "$zman_dep"; command gem install -i "$ZMAN_REPO_DIR" "$zman_dep"; }
+        { zman-inst g "$zman_dep"; command gem install --no-user-install -i "$ZMAN_REPO_DIR" "$zman_dep"; }
 done
 
 if [[ ! -f $ZMAN_REPO_DIR/bin/zsd ]]; then
